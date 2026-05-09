@@ -1,14 +1,14 @@
-from rse_hello_numba_demo.core import add_distances
-from pint import UnitRegistry
-
-ureg = UnitRegistry()
+from rse_hello_numba_demo.core import sum_of_squares, hello
 
 
-def test_add_distances():
-    result = add_distances(1 * ureg.kilometer, 500 * ureg.meter)
-    assert abs(result.magnitude - 1500) < 1e-9
+def test_sum_of_squares_known_value():
+    # 0^2 + 1^2 + 2^2 + 3^2 = 0 + 1 + 4 + 9 = 14
+    assert sum_of_squares(4) == 14.0
+
+
+def test_sum_of_squares_zero():
+    assert sum_of_squares(0) == 0.0
 
 
 def test_hello_returns_string():
-    from rse_hello_numba_demo.core import hello
     assert isinstance(hello(), str)

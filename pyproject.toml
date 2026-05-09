@@ -9,7 +9,7 @@ description = "A hello-world project using Pint for unit handling"
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.9"
-dependencies = ["pint>=0.23"]
+dependencies = ["numba>=0.57", "numpy"]
 
 [project.optional-dependencies]
 dev = ["pytest", "pytest-cov"]

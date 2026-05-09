@@ -1,6 +1,6 @@
 # rse-hello-numba-demo
 
-Demo projektu używającego biblioteki Pint.
+Demo projektu używającego biblioteki Numba do przyspieszania obliczeń przez kompilację JIT.
 
 ## Przykład użycia
 
@@ -19,17 +19,15 @@ pip install rse-hello-numba-demo
 
 ### `hello()`
 
-Zwraca string z przykładem dodawania odległości.
+Zwraca string z wynikiem przykładowego obliczenia JIT.
 
-### `add_distances(d1, d2)`
+### `sum_of_squares(n)`
 
-Dodaje dwie odległości z jednostkami i zwraca wynik w metrach.
+Oblicza sumę kwadratów `0² + 1² + ... + (n-1)²` przy użyciu Numba `@njit`.
 
 ```python
-from rse_hello_numba_demo import add_distances
-from pint import UnitRegistry
+from rse_hello_numba_demo import sum_of_squares
 
-ureg = UnitRegistry()
-result = add_distances(1 * ureg.kilometer, 500 * ureg.meter)
-print(result)  # 1500.0 meter
+result = sum_of_squares(1_000_000)
+print(result)  # 333332833333500000.0
 ```

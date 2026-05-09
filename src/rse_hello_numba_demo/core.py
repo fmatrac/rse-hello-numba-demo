@@ -1,13 +1,16 @@
-from pint import UnitRegistry
+from numba import njit
+import numpy as np
 
-ureg = UnitRegistry()
 
-
-def add_distances(d1, d2):
-    """Add two distances with units."""
-    return (d1 + d2).to("meter")
+@njit
+def sum_of_squares(n):  # pragma: no cover
+    """Compute sum of squares 0^2 + 1^2 + ... + (n-1)^2 using JIT compilation."""
+    total = 0.0
+    for i in range(n):
+        total += i * i
+    return total
 
 
 def hello():
-    result = add_distances(1 * ureg.kilometer, 500 * ureg.meter)
-    return f"Hello! 1 km + 500 m = {result}"
+    result = sum_of_squares(1_000_000)
+    return f"Hello! Sum of squares up to 1,000,000 = {result:.0f}"
