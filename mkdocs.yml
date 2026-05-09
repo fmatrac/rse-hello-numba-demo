@@ -1,0 +1,4 @@
+site_name: rse-hello-numba-demo
+docs_dir: docs
+theme:
+  name: readthedocs
